@@ -10,7 +10,7 @@ node_modules/
 *.pt
 
 # Videos
-*.mp4
+# *.mp4
 
 # Output folders
 backend/outputs/
