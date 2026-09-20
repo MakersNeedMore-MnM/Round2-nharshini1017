@@ -1,271 +1,68 @@
-# 🚦 RoadSense AI
-
-### Spatio-Temporal Traffic Violation Detection System Using Edge AI, YOLOv8 and ByteTrack
-
-RoadSense AI is an **AI-powered traffic violation detection system** that analyzes CCTV/IP camera video to automatically identify and record common road-safety violations.
-
-The system combines **YOLOv8 object detection, ByteTrack multi-object tracking, spatial association, temporal validation, MediaPipe-based analysis, and Flask/React technologies** to provide reliable traffic-event detection and digital evidence generation.
-
----
+#ROADSENSE AI
+#🚦 Spatio-Temporal Traffic Violation Detection System using YOLOv8 and GNSS
 
 ## 📖 Overview
 
-Traditional CCTV-based traffic monitoring requires continuous human observation. RoadSense AI automates this process by analyzing video streams and identifying traffic violations across multiple frames.
+The **Spatio-Temporal Traffic Violation Detection System** is an AI-powered intelligent traffic monitoring solution that detects multiple traffic violations in real time using computer vision, deep learning, and geospatial technologies.
 
-The system maintains vehicle identities, analyzes relationships between riders and vehicles, validates observations over time, and generates evidence for detected violations.
-
-### Detected Violations
-
-* 🪖 Helmetless Riding
-* 👥 Triple Riding / Excessive Rider Count
-* 📱 Mobile Phone Usage While Riding
-* ↩️ Wrong-Way Movement
+The system integrates **YOLOv8**, **ByteTrack**, **MediaPipe**, **Flask**, **React.js**, and **GNSS** to detect traffic violations, capture digital evidence, log violation details with location information, and visualize results through an interactive dashboard. Designed as a **low-cost, scalable Edge AI solution**, it is suitable for smart city traffic monitoring and intelligent transportation systems.
 
 ---
 
-## 🎯 Objectives
+# 🎯 Objectives
 
-* Automatically detect traffic violations from CCTV/IP camera footage.
-* Track vehicles across successive video frames.
-* Use spatial relationships to associate riders and relevant objects.
-* Apply temporal validation to reduce false detections.
-* Automatically capture evidence of detected violations.
-* Record violation details for later review.
-* Provide a web-based dashboard for monitoring detected events.
-* Support Edge-AI based traffic monitoring with low dependence on cloud processing.
+- Detect multiple traffic violations using AI-based vision models.
+- Integrate GNSS for location-aware violation tagging.
+- Capture digital evidence automatically.
+- Visualize violations through an interactive dashboard.
+- Develop a scalable and intelligent traffic monitoring solution.
 
 ---
 
-## ✨ Key Features
+# ✨ Key Features
 
-### 🚨 Traffic Violation Detection
-
-Detects multiple traffic violations from road surveillance video:
-
-* Helmetless riding
-* Triple riding
-* Mobile-phone usage while riding
-* Wrong-way movement
-
-### 🎯 YOLOv8 Object Detection
-
-YOLOv8 is used to detect relevant objects such as:
-
-* Vehicles
-* Riders
-* Mobile phones
-* Other objects required for violation analysis
-
-### 👣 ByteTrack Vehicle Tracking
-
-ByteTrack provides persistent tracking of detected vehicles across successive frames.
-
-Tracking enables:
-
-* Vehicle identity persistence
-* Trajectory analysis
-* Direction analysis
-* Temporal event validation
-
-### 🔗 Spatial Association
-
-The system analyzes spatial relationships between detected objects using techniques such as:
-
-* Bounding-box relationships
-* Centroid distance
-* Relative position
-* Object association
-* Predefined regions of interest
-
-### ⏱️ Temporal Validation
-
-Potential violations are validated across multiple frames rather than relying on a single frame.
-
-The validation process can consider:
-
-* Consecutive observations
-* Persistence of an event
-* Majority observations
-* Spatial consistency
-
-### 📸 Evidence Generation
-
-When a violation is confirmed, RoadSense AI can capture and store relevant evidence.
-
-Evidence records can include:
-
-* Violation type
-* Timestamp
-* Track ID
-* Vehicle information
-* Location
-* Evidence snapshot
-
-### 📊 Web Dashboard
-
-A React-based dashboard provides visualization of detected violations and their associated evidence.
+- 🚦 Real-time Traffic Violation Detection
+- 🪖 Helmetless Rider Detection
+- 👥 Triple Riding Detection
+- 📱 Mobile Phone Usage Detection
+- ↩️ Wrong-Way Driving Detection
+- 🎯 YOLOv8 Object Detection
+- 👣 ByteTrack Multi-Object Tracking
+- 🧍 MediaPipe Pose Estimation
+- 📍 GNSS-based Geospatial Mapping
+- 📸 Automated Evidence Capture
+- 📊 Violation Logging
+- 🌐 Interactive React Dashboard
+- 🧾 E-Challan Generation Support
+- 💻 Edge AI Deployment Support
 
 ---
 
-# 🧠 System Architecture
+# 🛠️ Technologies Used
 
-```text
-              CCTV / IP Camera
-                     │
-                     ▼
-                RTSP Stream
-                     │
-                     ▼
-             ┌───────────────┐
-             │ Edge-AI Core  │
-             └───────────────┘
-                     │
-                     ▼
-            ┌─────────────────┐
-            │ YOLOv8 Detection│
-            └─────────────────┘
-                     │
-                     ▼
-            ┌─────────────────┐
-            │ ByteTrack       │
-            │ Vehicle Tracking│
-            └─────────────────┘
-                     │
-                     ▼
-            ┌─────────────────┐
-            │ Spatial         │
-            │ Association     │
-            └─────────────────┘
-                     │
-                     ▼
-            ┌─────────────────┐
-            │ Temporal        │
-            │ Validation      │
-            └─────────────────┘
-                     │
-          ┌──────────┼──────────┐
-          ▼          ▼          ▼
-      Helmetless   Triple     Mobile
-       Riding      Riding     Phone
-          │          │          │
-          └──────────┼──────────┘
-                     │
-                     ▼
-              Wrong-Way Analysis
-                     │
-                     ▼
-             Violation Event
-                     │
-                     ▼
-             Evidence Capture
-                     │
-                     ▼
-              Event Logging
-                     │
-                     ▼
-             React Dashboard
-```
+### Programming Languages
+- Python
+- JavaScript
 
----
+### AI & Computer Vision
+- YOLOv8
+- OpenCV
+- MediaPipe
+- ByteTrack
 
-# ⚙️ System Workflow
+### Frameworks
+- Flask
+- React.js
 
-```text
-1. CCTV / IP Camera
-        ↓
-2. RTSP Video Stream
-        ↓
-3. Frame Processing
-        ↓
-4. YOLOv8 Object Detection
-        ↓
-5. ByteTrack Vehicle Tracking
-        ↓
-6. Spatial Association
-        ↓
-7. Temporal Validation
-        ↓
-8. Violation Classification
-        ↓
-9. Evidence Capture
-        ↓
-10. Event Logging
-        ↓
-11. Dashboard Visualization
-```
+### Database
+- SQLite
+- CSV Logging
 
----
+### Geospatial Technology
+- GNSS
 
-# 🚨 Violation Detection
-
-## 🪖 Helmetless Riding
-
-The system analyzes detected riders and their relationship with the corresponding vehicle to identify riders without helmets.
-
-Detection is validated across video frames before generating an event.
-
----
-
-## 👥 Triple Riding
-
-The system associates multiple riders with a two-wheeler and determines whether the rider count exceeds the configured threshold.
-
-```text
-Vehicle
-   ↓
-Rider Detection
-   ↓
-Rider Association
-   ↓
-Rider Count
-   ↓
-Excessive Rider Event
-```
-
----
-
-## 📱 Mobile Phone Usage
-
-Mobile-phone usage while riding is identified using object and spatial/pose relationships.
-
-The system analyzes the relationship between the rider, hand/head region, and detected mobile phone across successive frames.
-
----
-
-## ↩️ Wrong-Way Movement
-
-Wrong-way movement is identified using persistent vehicle tracking and trajectory analysis.
-
-```text
-Vehicle Detection
-       ↓
-Persistent Track
-       ↓
-Vehicle Trajectory
-       ↓
-Movement Direction
-       ↓
-Compare With Configured Direction
-       ↓
-Wrong-Way Event
-```
-
----
-
-# 🛠️ Technology Stack
-
-| Category                | Technology         |
-| ----------------------- | ------------------ |
-| Object Detection        | YOLOv8             |
-| Multi-Object Tracking   | ByteTrack          |
-| Pose / Spatial Analysis | MediaPipe          |
-| Computer Vision         | OpenCV             |
-| Backend                 | Flask              |
-| Frontend                | React.js           |
-| OCR / Plate Processing  | EasyOCR            |
-| Video Input             | RTSP               |
-| Programming             | Python, JavaScript |
-| Deployment Approach     | Edge AI            |
+### Edge Computing
+- Raspberry Pi
 
 ---
 
@@ -274,140 +71,129 @@ Wrong-Way Event
 ```text
 Spatio-Temporal-Traffic-Violation-Detection/
 │
-├── assets/
-│   └── demo video/
-│       ├── output_mobile.mp4
-│       └── output_video.mp4
-│
 ├── backend/
-│   ├── models/
-│   ├── output/
-│   ├── logs/
-│   ├── backend.py
-│   ├── main.py
-│   ├── helmetless_violation.py
-│   ├── mobile_usage.py
-│   ├── triple_riding.py
-│   ├── wrong_way.py
-│   ├── snapshot_manager.py
-│   └── violation_logger.py
-│
-├── docs/
-│   └── traffic violation report.pdf
-│
 ├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── App.jsx
-│   │   ├── Dashboard.jsx
-│   │   ├── index.js
-│   │   └── main.css
-│   ├── package.json
-│   └── package-lock.json
-│
-├── .gitignore
+├── assets/
+│   ├── screenshots/
+│   └── demo/
+├── docs/
+├── README.md
 ├── LICENSE
-└── README.md
+└── .gitignore
 ```
 
 ---
 
-# 📸 Evidence and Logging
+# ⚙️ System Workflow
 
-Each detected violation can be recorded with associated metadata such as:
-
-```text
-Timestamp
-Violation Type
-Track ID
-Number Plate
-Location
-Evidence Snapshot
-```
-
-This provides a structured record of detected traffic events for monitoring and review.
+1. Capture live video from an RTSP-enabled IP camera.
+2. Detect vehicles and riders using YOLOv8.
+3. Track detected objects using ByteTrack.
+4. Analyze rider posture using MediaPipe.
+5. Apply Spatio-Temporal Decision Logic to validate violations.
+6. Retrieve GNSS coordinates.
+7. Capture evidence snapshots.
+8. Store violation details with timestamps and GPS location.
+9. Visualize analytics through the React dashboard.
+10. Generate reports and support e-challan generation.
 
 ---
 
-# 🌐 Edge-AI Approach
+# 🚨 Traffic Violations Detected
 
-RoadSense AI is designed around an **Edge-first processing architecture**.
-
-```text
-CCTV / IP Camera
-        ↓
-     RTSP
-        ↓
-   Edge Device
-        ↓
-  AI Processing
-        ↓
-Violation Detection
-        ↓
-Local Evidence
-        ↓
-Dashboard
-```
-
-Processing video closer to the camera can reduce the need to continuously transmit raw video to a remote server and can support low-latency traffic monitoring.
+- Helmetless Riding
+- Triple Riding
+- Mobile Phone Usage While Riding
+- Wrong-Way Driving
 
 ---
 
-# 📊 Dashboard
+# 📸 Project Screenshots
 
-The web dashboard provides a centralized interface for viewing detected traffic violations.
+## Dashboard
 
-It can display:
+![Dashboard](assets/screenshots/dashboard.png)
 
-* Total violations
-* Violation categories
-* Detection timestamps
-* Location
-* Track information
-* Evidence snapshots
-* Violation records
+## Dashboard Analytics
+
+![Dashboard Analytics](assets/screenshots/dashboard2.png)
+
+## Helmetless Rider Detection
+
+![Helmetless Detection](assets/screenshots/helmetless.jpeg)
+
+## Mobile Phone Usage Detection
+
+![Mobile Phone Detection](assets/screenshots/mobile_phone.jpeg)
+
+## Triple Riding Detection
+
+![Triple Riding Detection](assets/screenshots/triple_riding.jpeg)
+
+## Traffic Violation Detection
+
+![Traffic Violation](assets/screenshots/violation.jpeg)
+
+## GNSS Map Visualization
+
+![GNSS Map](assets/screenshots/map.png)
 
 ---
 
 # 🚀 Future Scope
 
-* Automatic Number Plate Recognition enhancement
-* Automated evidence management
-* E-challan integration
-* Red-light violation detection
-* Overspeeding detection
-* Multi-camera vehicle tracking
-* Advanced traffic analytics
-* Large-scale Edge deployment
-* Integration with intelligent transportation systems
+- Advanced multi-violation detection
+- Smart parking occupancy monitoring
+- Automatic Number Plate Recognition (ANPR)
+- Automated evidence generation
+- Advanced Traffic analytics dashboard
+- Edge AI deployment
+- Smart city integration
+- Detection of high smoke emission in the environment
 
 ---
 
-# 🌆 Applications
+# 📸 Sample Outputs
 
-RoadSense AI can be used for:
-
-* 🚦 Traffic Enforcement
-* 🛣️ Road Safety Monitoring
-* 🏙️ Smart City Traffic Monitoring
-* 📹 Intelligent CCTV Surveillance
-* 🚔 Automated Traffic Violation Detection
-* 🚘 Intelligent Transportation Systems
+Sample screenshots of detections and dashboard analytics are available in the **assets/screenshots** folder.
 
 ---
 
-# 👩‍💻 Authors
+# 🚀 Future Scope
 
-**Harshini N**
-**Hrithi Shree S S**
+- Real-time HD video acquisition using IP cameras
+- Advanced multi-violation detection including red-light jumping and overspeeding
+- Smart parking occupancy monitoring
+- Automatic Number Plate Recognition (ANPR)
+- Automated evidence generation and e-challan system
+- Live traffic analytics and congestion monitoring
+- Edge AI deployment on Raspberry Pi
+- Smart city integration and scalable traffic management
 
-Department of Electronics and Communication Engineering
-**Saranathan College of Engineering, Trichy**
+---
+
+# 💡 Applications
+
+- Smart Cities
+- Intelligent Traffic Management
+- Road Safety Monitoring
+- Automated Traffic Enforcement
+- Smart Parking Systems
+- Urban Mobility Analytics
+
+---
+
+# 👨‍💻 Authors
+
+- **Harshini N**
+- **Hrithi Shree S S**
+
+**Department of Electronics and Communication Engineering**
+
+**Saranathan College of Engineering Trichy**
 
 ---
 
 # 📄 License
 
 This project is licensed under the **MIT License**.
-
-
